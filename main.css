@@ -5,6 +5,15 @@
     font-family: sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
+body{
+    background-color: #e4e4e4 ;
+}
+  
+
 nav{
     width: 100%;
     top: 0;
@@ -27,13 +36,15 @@ nav{
     width: 100%;
     height: 4.5rem;
     /* border: 1px solid; */
-    border-radius: 0.5rem;
+    border-radius: 3rem;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
 }
 
 .logo img:hover{
     transform: scale(1.1);
+    box-shadow: 0rem 0rem 1rem #ffffff;
 
 }
 
@@ -47,11 +58,13 @@ nav{
     color: white;
     font-size: 1.25rem;
     font-weight: bold;
-    transition: 0.35s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
 .menu a:hover{
     transform: scale(1.1);
+    text-shadow: 0.2rem 0.1rem 2rem #ffffff;
+    
 }
 
 .picture{
@@ -62,7 +75,8 @@ nav{
 .picture img{
     width: 100%;
     height: 100vh;
-    filter: blur(0.3px);
+    filter: blur(0.5px);
+    object-fit: cover;
     cursor: none;
 }
 
@@ -77,10 +91,24 @@ nav{
     text-shadow: 0.3rem 0.35rem 1rem gray;
 }
 
+.picture h3{
+    position: absolute;
+    top: 65%;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0.3rem 0.35rem 1rem gray;
+}
+
 
 .container{
     width: 85%;
     margin: 2rem auto;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%;
 }
 
 .grid{
@@ -120,6 +148,11 @@ nav{
     color: white;
     padding: 0.3rem;
     border-radius: 1rem;
+    transition: 0.5s ease-in-out;
+}
+
+.statusreview:hover{
+    box-shadow: 0.1rem 0.3rem 0rem #0d6100;
 }
 
 #star{
@@ -173,10 +206,23 @@ nav{
     transition: 0.5s ease-in-out;
 }
 
+.detail:hover{
+    box-shadow: 0.3rem 0.3rem 0.5rem #70a6db;
+}
+
+.detail:hover .outdetail:hover{
+    box-shadow: 0.3rem 0.3rem 0.9rem #e4e4e4;
+}
+
+.detail:hover img:hover{
+    box-shadow: 0.3rem 0.3rem 0.5rem #70a6db;
+}
+
 .detail-right img{
     width: 100%;
     height: 30rem;
     border-radius: 1rem;
+    object-fit: cover;
 }
 
 .detail-left p{
@@ -186,4 +232,235 @@ nav{
 footer{
     text-align: center;
     color: gray;
+    background-color: #262626;
+    width: 100%;
+    padding: 1rem;
+    transition: 0.6s ease-in-out;
 }
+
+footer:hover{
+    color: #ffffff;
+    text-shadow: 0.1rem 0.1rem 1rem #ffffff;
+}
+
+
+.detail-left{
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.outdetail {
+    background-color: #f4f6f7 ;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.misspicture img{
+    width: 100%;
+    object-fit: cover;
+    height: 11.51rem;
+    border-radius: 1rem;
+}
+
+.animationHead{
+    animation: textsideout linear;
+    animation-timeline: view();
+    animation-range: exit -30% exit 80%;
+}
+
+.coverbox{
+    width: 70%;
+    /* border: 1px solid; */
+    margin: 3rem auto;
+    display: grid;
+    padding: 1.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+    border-radius: 1rem;
+}
+
+.box{
+    /* border: 1px solid #70a6db; */
+    
+    transition: 0.5s ease-in-out;
+}
+
+.misbox{
+    background-color: white;
+    padding: 0.3rem;
+    border-radius: 1.5rem;
+    /* border: 1px solid; */
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+    
+}
+
+.misbox h1{
+    font-size: 1.5rem;
+}
+
+.box:hover img{
+    scale: 1.01;
+    filter: blur(0.03rem);
+    box-shadow: 1rem 1rem 0.5rem #a9a9a9 ;
+}
+
+.box img{
+    width: 100%;
+    height: 25rem;
+    border-radius: 1rem;
+    box-shadow: 0.5rem 0.5rem 0.5rem #a9a9a9 ;
+    transition: 0.3s ease-in-out;
+}
+
+.box:hover .misbox{
+    animation: boxup 0.5s forwards;
+    box-shadow: 0.3rem 0.3rem 0.9rem #ecf1f4 ;
+}
+
+.box:not(:hover) .misbox{
+    animation: boxdown 0.5s linear;
+}
+
+
+@keyframes appear {
+    from{
+        opacity: 0;
+        scale: 0.5;
+    }
+    to{
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes textsideout{
+    from{
+        opacity: 1;
+        scale: 1;
+    }
+    to{
+        opacity: 0;
+        scale: 0.5;
+    }
+}
+
+@keyframes boxup{
+    0%{
+        opacity: 0;
+        transform: translateY(0rem);
+    }
+    60%{
+        opacity: 0.3;
+    }
+    100%{
+        transform: translateY(-4rem);
+        opacity: 1;
+    }
+}
+
+@keyframes boxdown{
+    0%{
+        opacity: 1;
+        transform: translateY(-4rem);
+    }
+    60%{
+        opacity: 0.3;
+    }
+    100%{
+        transform: translateY(0rem);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 1024px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .detail{
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .coverbox {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .picture h1 {
+      font-size: 4rem;
+    }
+  
+    .picture h3 {
+      font-size: 1.75rem;
+    }
+    .box img {
+        max-width: 100%;
+      }
+  }
+  
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .coverbox {
+      grid-template-columns: 1fr;
+      width: 90%;
+    }
+  
+    .picture h1 {
+      font-size: 3rem;
+    }
+  
+    .picture h3 {
+      font-size: 1.5rem;
+    }
+    
+    .detail {
+      grid-template-columns: 1fr;
+    }
+    
+    .detail-right img {
+      height: 20rem;
+    }
+    
+    .box img {
+      height: 20rem;
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .innav {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .menu {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .menu a {
+      padding: 0.5rem;
+    }
+  
+    .picture h1 {
+      font-size: 2.5rem;
+    }
+  
+    .picture h3 {
+      font-size: 1.2rem;
+    }
+
+    .minipage {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+      }
+  }
